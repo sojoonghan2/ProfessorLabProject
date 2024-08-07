@@ -137,9 +137,12 @@ void CScene::BuildObjects(ID3D12Device* pd3dDevice, ID3D12GraphicsCommandList* p
 	CLoadedModelInfo* pEthanModel = CGameObject::LoadGeometryAndAnimationFromFile(pd3dDevice, pd3dCommandList, m_pd3dGraphicsRootSignature, "Model/Ethan.bin", NULL);
 	m_ppHierarchicalGameObjects[6] = new CEthanObject(pd3dDevice, pd3dCommandList, m_pd3dGraphicsRootSignature, pEthanModel, 1);
 	m_ppHierarchicalGameObjects[6]->m_pSkinnedAnimationController->SetTrackAnimationSet(0, 1);
-	///*
+	
+	// 2개의 float 값을 저장할 수 있는 메모리를 동적 할당
 	float* pfData = new float[2];
+	// 할당된 메모리의 첫 번째 요소(인덱스 0번)에 0.0 저장
 	pfData[0] = 0.0f;
+	// 할당된 메모리의 두 번째 요소(인덱스 1번)에 1.0 저장
 	pfData[1] = 1.0f;
 
 	m_ppHierarchicalGameObjects[6]->m_pSkinnedAnimationController->SetCallbackKeys(0, 2);
